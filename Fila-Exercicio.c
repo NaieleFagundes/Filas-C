@@ -98,7 +98,7 @@ void encontrarElemento(Fila *q, int elemento)
 int main()
 {
     Fila q = inicializarFila();
-    int erro, i, opcao, elemento;
+    int erro, i, opcao, elemento, valor;
 
 
     do {
@@ -114,33 +114,32 @@ int main()
         scanf ("%d", &opcao);
         switch (opcao){
             case 1:
-             // Enfileirando elementos
-             printf ("\nDigite: ");
-            scanf ("%d", &i);
-            enfileirar(&q, i, &erro);
-            if (erro) {
-                printf("Fila Cheia! Não foi possível enfileirar %d\n", i);
-            }
+                // Enfileirando elementos
+                printf ("\nDigite: ");
+                scanf ("%d", &i);
+                enfileirar(&q, i, &erro);
+                if (erro) {
+                    printf("Fila Cheia! Não foi possível enfileirar %d\n", i);
+                }
 
-            break;
+                break;
             case 2:
-             // Desenfileirando elementos
-            int valor = desenfileirar(&q, &erro);
-            if (!erro){
-                printf("Desenfileirado: %d\n", valor);
-            }
-            else{
-                printf("Fila Vazia! Não foi possível desenfileirar\n");
-            }
+                // Desenfileirando elementos
+                valor = desenfileirar(&q, &erro);
+                if (!erro){
+                    printf("Desenfileirado: %d\n", valor);
+                } else{
+                    printf("Fila Vazia! Não foi possível desenfileirar\n");
+                }
 
-            break;
+                break;
             case 3:
                mostraFila(q);
             break;
             case 4:
-              printf ("Digite o elemento que deseja encontrar: ");
-              scanf ("%d", &elemento);
-              encontrarElemento(&q, elemento);
+                printf ("Digite o elemento que deseja encontrar: ");
+                scanf ("%d", &elemento);
+                encontrarElemento(&q, elemento);
             break;
             case 0: 
                 printf ("\nOperação finalizada.");
